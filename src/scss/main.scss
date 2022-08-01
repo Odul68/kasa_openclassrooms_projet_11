@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1440px;
+    margin: auto;
+    font-family: 'Montserrat';
+}
+
+
+$color-primary: #FF6060;
+$color-secondary: #FFFFFF;
+$color-tertiary: #F6F6F6;
+$color-fourth: #3282f7;
+$color-fifth: #68d9a4;
+$color-sixth: #ed6454;
+
+
+// Header with nav menu
+
+
+.nav {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        gap: 2rem;
+    }
+
+    a {
+        color: inherit;
+        size: 24px;
+        font-weight: 500;
+        color: $color-primary;
+        text-decoration: none;
+    }
+}
+
+
+// Homepage - Picture and Title
+ 
+
+.homeBackground {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    .homeBackgroundImage {
+        border-radius: 25px;
+        filter: brightness(70%);
+    }
+
+    .homeBackgroundTitle {
+        color: $color-secondary;
+        position: absolute;
+        font-size: 48px; 
+        font-weight: 500;   
+    }
+}
+
+
+// About page - Image background
+
+
+.aboutBackground {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    .aboutBackgroundImage {
+        border-radius: 25px;
+        filter: brightness(70%);
+    }
+}
+
+
+.accomodationCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: $color-tertiary;
+    padding: 2rem;
+    border-radius: 25px;
+
+    .accomodationCards {
+        width: 340px;
+        height: 340px;
+        margin: 2rem;
+        position: relative;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+
+        p {
+            position: absolute;
+            bottom: 0;
+            margin-left: 1rem;
+            font-size: 18px;
+            color: $color-secondary;
+        }
+    }
+}
+
+
+// About page - Accordion buttons with information
+
+
+.accordion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .accordion-item {
+        margin-bottom: 2rem;
+        border: none;
+        box-shadow: none;
+        width: 1023px;
+    }
+
+    .accordion-button{
+        background-color: $color-primary;
+        border-radius: 5px;
+        color: $color-secondary;
+    }
+    
+    .accordion-button:focus {
+        box-shadow: none;
+    }
+    
+    .accordion-button::after {
+        background-image: url(/public/images/arrowDownWhite.png);
+    }
+    
+    .accordion-button:not(.collapsed)::after {
+        background-image: url(/public/images/arrowUpWhite.png);
+    }
+    
+    .accordion-button:not(.collapsed) {
+        background-color: $color-primary;
+        color: $color-secondary;
+    }
+    
+    .accordion-collapse {
+        background-color: $color-tertiary;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
