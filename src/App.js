@@ -1,9 +1,13 @@
-import React, { Component } from "react";
-import NavBar from "./NavBar";
+import React from "react";
+import NavBar from "./Components/NavBar";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Trial from "./Pages/accomodationDetails";
+import GoToAccomodation from "./Pages/accomodationDetails";
+import PageNotfound from "./Pages/404";
+import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom";
+
+// Ask about several pages returning home, can I use more "element" in one Route ?
 
 function App() {
   return (
@@ -11,16 +15,16 @@ function App() {
       <NavBar />
       <div className="container">
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/About" element={<About />} />
           <Route
-            // path="/accomodationDetails"
-            // element={<Trial />}
             path="/accomodationDetails/:accomodationId"
-            element={<Trial />}
+            element={<GoToAccomodation />}
           />
+          <Route path="/404" element={<PageNotfound />} />
         </Routes>
       </div>
+      {/* <Footer /> */}
     </>
   );
 }

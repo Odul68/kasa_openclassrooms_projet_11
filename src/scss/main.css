@@ -3,15 +3,22 @@
 }
 
 body {
-  max-width: 1440px;
   margin: auto;
   font-family: "Montserrat";
+  min-height: 100vh;
 }
 
 .nav {
-  padding: 2rem;
+  max-width: 1240px;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-top: 2rem;
+}
+.nav img {
+  margin: 0;
 }
 .nav ul {
   list-style-type: none;
@@ -26,16 +33,65 @@ body {
   text-decoration: none;
 }
 
+@media (max-width: 1230px) {
+  .nav {
+    max-width: 900px;
+  }
+}
+@media (max-width: 920px) {
+  .nav {
+    max-width: 700px;
+  }
+}
+@media (max-width: 480px) {
+  .nav {
+    margin: 1rem;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .nav a {
+    size: 16px;
+  }
+  .nav img {
+    width: 100%;
+    height: 36px;
+  }
+  .nav ul {
+    padding-top: 1rem;
+  }
+}
+@media (min-width: 576px) {
+  .container, .container-sm {
+    max-width: none;
+  }
+}
+@media (min-width: 920px) {
+  .container, .container-lg, .container-md, .container-sm {
+    max-width: 860px;
+  }
+}
+@media (min-width: 1230px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: none;
+  }
+}
+@media (min-width: 1300px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1270px;
+  }
+}
 .homeBackground {
   display: flex;
   justify-content: center;
   position: relative;
   align-items: center;
-  margin-bottom: 4rem;
+  margin: 2rem 0 4rem 0;
+  max-width: 100%;
 }
 .homeBackground .homeBackgroundImage {
   border-radius: 25px;
   filter: brightness(70%);
+  max-width: 100%;
 }
 .homeBackground .homeBackgroundTitle {
   color: #FFFFFF;
@@ -44,6 +100,279 @@ body {
   font-weight: 500;
 }
 
+@media (max-width: 1230px) {
+  .homeBackground .homeBackgroundImage {
+    height: 12rem;
+  }
+  .homeBackground .homeBackgroundTitle {
+    font-size: 36px;
+  }
+}
+@media (max-width: 920px) {
+  .homeBackground .homeBackgroundTitle {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .homeBackground {
+    margin: 1rem;
+  }
+  .homeBackground .homeBackgroundImage {
+    height: 8rem;
+  }
+  .homeBackground .homeBackgroundTitle {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .homeBackground {
+    margin: 0;
+  }
+  .homeBackground .homeBackgroundImage {
+    height: 8rem;
+  }
+  .homeBackground .homeBackgroundTitle {
+    font-size: 24px;
+    padding: 4rem 7rem 4rem 1rem;
+    justify-content: flex-start;
+    display: flex;
+  }
+}
+.accomodationCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #F6F6F6;
+  padding: 2rem 1rem;
+  border-radius: 25px;
+  margin-bottom: 16rem;
+  max-width: 1240px;
+}
+.accomodationCardsContainer .accomodationCards {
+  width: 340px;
+  height: 340px;
+  margin: 1.5rem;
+  position: relative;
+}
+.accomodationCardsContainer .accomodationCards img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 10px;
+}
+.accomodationCardsContainer .accomodationCards p {
+  position: absolute;
+  bottom: 0;
+  margin-left: 1rem;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+/* Media Queries Operation */
+@media (max-width: 920px) {
+  .accomodationCards {
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .accomodationCardsContainer {
+    background-color: #FFFFFF;
+    padding: 0;
+  }
+  .accomodationCardsContainer .accomodationCards {
+    margin: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .accomodationCardsContainer .accomodationCards {
+    min-width: 100%;
+    height: 255px;
+    margin: 1rem;
+  }
+}
+.carousel .carousel-inner .carousel-item {
+  height: 26rem;
+}
+.carousel .carousel-inner .carousel-item img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 25px;
+}
+.carousel .carousel-control-next, .carousel .carousel-control-prev {
+  opacity: 1;
+}
+.carousel .carousel-control-next .carousel-control-prev-icon, .carousel .carousel-control-next .carousel-control-next-icon, .carousel .carousel-control-prev .carousel-control-prev-icon, .carousel .carousel-control-prev .carousel-control-next-icon {
+  height: 7rem;
+  width: 9rem;
+}
+.carousel .carousel-indicators > button {
+  display: none;
+}
+.carousel .trial {
+  position: absolute;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .carousel .carousel-inner .carousel-item {
+    height: 16rem;
+  }
+}
+.accomodationInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.accomodationInfo .primaryInformation h1 {
+  color: #FF6060;
+  font-size: 36px;
+}
+.accomodationInfo .primaryInformation p {
+  color: #FF6060;
+  font-size: 18px;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.accomodationInfo .primaryInformation .accomodationTag {
+  background-color: #FF6060;
+  margin-right: 1rem;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 3px 30px;
+  border-radius: 10px;
+}
+.accomodationInfo .secondaryInformation .hostInformation {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.accomodationInfo .secondaryInformation .hostInformation p {
+  width: 4rem;
+  text-align: end;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  color: #FF6060;
+}
+.accomodationInfo .secondaryInformation .hostInformation img {
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+}
+.accomodationInfo .secondaryInformation .ratingsInformation {
+  margin-top: 1rem;
+}
+.accomodationInfo .secondaryInformation .ratingsInformation i {
+  color: #E3E3E3;
+  font-size: 42px;
+  margin-right: 0.5rem;
+}
+.accomodationInfo .secondaryInformation .ratingsInformation i.colored {
+  color: #FF6060;
+  font-size: 42px;
+  margin-right: 0.5rem;
+}
+
+/* Media Queries Operation */
+@media (max-width: 920px) {
+  .accomodationInfo {
+    flex-direction: column;
+  }
+  .accomodationInfo .primaryInformation h1 {
+    font-size: 18px;
+  }
+  .accomodationInfo .primaryInformation p {
+    font-size: 14px;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .accomodationInfo .primaryInformation .accomodationTag {
+    font-size: 10px;
+    padding: 1px 12px;
+    border-radius: 5px;
+  }
+  .accomodationInfo .secondaryInformation {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .accomodationInfo .secondaryInformation .hostInformation p {
+    font-size: 12px;
+  }
+  .accomodationInfo .secondaryInformation .hostInformation img {
+    width: 32px;
+    height: 32px;
+  }
+  .accomodationInfo .secondaryInformation .ratingsInformation i {
+    font-size: 15px;
+  }
+  .accomodationInfo .secondaryInformation .ratingsInformation i.colored {
+    font-size: 15px;
+  }
+}
+.accordionAccomodation {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.accordionAccomodation .accordionItemAccomodation {
+  margin-bottom: 2rem;
+  border: none;
+  box-shadow: none;
+  width: 582px;
+}
+.accordionAccomodation .accordion-button {
+  background-color: #FF6060;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.accordionAccomodation .accordion-button:focus {
+  box-shadow: none;
+}
+.accordionAccomodation .accordion-button::after {
+  background-image: url(/public/images/arrowDownWhite.png);
+}
+.accordionAccomodation .accordion-button:not(.collapsed)::after {
+  background-image: url(/public/images/arrowUpWhite.png);
+}
+.accordionAccomodation .accordion-button:not(.collapsed) {
+  background-color: #FF6060;
+  color: #FFFFFF;
+}
+.accordionAccomodation .accordion-collapse {
+  background-color: #F6F6F6;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.accordionAccomodation .accordionBodyAccomodation {
+  color: #FF6060;
+  font-size: 18px;
+  list-style-type: none;
+}
+
+@media (max-width: 1230px) {
+  .accordionAccomodation .accordionItemAccomodation {
+    width: 380px;
+  }
+}
+@media (max-width: 920px) {
+  .accordionAccomodation {
+    flex-direction: column;
+  }
+  .accordionAccomodation .accordionItemAccomodation {
+    width: auto;
+  }
+}
 .aboutBackground {
   display: flex;
   justify-content: center;
@@ -54,64 +383,131 @@ body {
 .aboutBackground .aboutBackgroundImage {
   border-radius: 25px;
   filter: brightness(70%);
+  max-width: 100%;
 }
 
-.accomodationCardsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: #F6F6F6;
-  padding: 2rem;
-  border-radius: 25px;
+@media (max-width: 920px) {
+  .aboutBackground {
+    margin: 1rem 3rem 3rem 3rem;
+  }
+  .aboutBackground .aboutBackgroundImage {
+    height: 10rem;
+  }
 }
-.accomodationCardsContainer .accomodationCards {
-  width: 340px;
-  height: 340px;
-  margin: 2rem;
-  position: relative;
-  border-radius: 10px;
-  background-size: cover;
-  background-position: center;
+@media (max-width: 768px) {
+  .aboutBackground {
+    margin: 1rem 2rem 2rem 2rem;
+  }
 }
-.accomodationCardsContainer .accomodationCards p {
-  position: absolute;
-  bottom: 0;
-  margin-left: 1rem;
-  font-size: 18px;
-  color: #FFFFFF;
+@media (max-width: 480px) {
+  .aboutBackground {
+    margin: 1rem;
+  }
 }
-
-.accordion {
+.accordionAbout {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.accordion .accordion-item {
+.accordionAbout .accordionItemAbout {
   margin-bottom: 2rem;
   border: none;
   box-shadow: none;
   width: 1023px;
 }
-.accordion .accordion-button {
+.accordionAbout .accordion-button {
   background-color: #FF6060;
   border-radius: 5px;
   color: #FFFFFF;
 }
-.accordion .accordion-button:focus {
+.accordionAbout .accordion-button:focus {
   box-shadow: none;
 }
-.accordion .accordion-button::after {
+.accordionAbout .accordion-button::after {
   background-image: url(/public/images/arrowDownWhite.png);
 }
-.accordion .accordion-button:not(.collapsed)::after {
+.accordionAbout .accordion-button:not(.collapsed)::after {
   background-image: url(/public/images/arrowUpWhite.png);
 }
-.accordion .accordion-button:not(.collapsed) {
+.accordionAbout .accordion-button:not(.collapsed) {
   background-color: #FF6060;
   color: #FFFFFF;
 }
-.accordion .accordion-collapse {
+.accordionAbout .accordion-collapse {
   background-color: #F6F6F6;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+@media (max-width: 920px) {
+  .accordionAbout {
+    margin: 1rem 3rem 3rem 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .accordionAbout {
+    margin: 1rem 2rem 2rem 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .accordionAbout {
+    margin: 1rem;
+  }
+}
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+.notFound h1 {
+  font-size: 288px;
+  font-weight: 700;
+  color: #FF6060;
+}
+.notFound p {
+  font-size: 36px;
+  font-weight: 500;
+  color: #FF6060;
+}
+.notFound .link404 {
+  margin-top: 6rem;
+  font-size: 18px;
+  color: #FF6060;
+}
+
+@media (max-width: 920px) {
+  .notFound h1 {
+    font-size: 96px;
+    font-weight: 700;
+    color: #FF6060;
+  }
+  .notFound p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #FF6060;
+    text-align: center;
+  }
+  .notFound .link404 {
+    margin-top: 6rem;
+    font-size: 14px;
+    color: #FF6060;
+  }
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  text-align: center;
+  padding: 1rem;
+}
+footer img {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+}
+footer p {
+  color: #FFFFFF;
+  font-size: 24px;
 }/*# sourceMappingURL=main.css.map */

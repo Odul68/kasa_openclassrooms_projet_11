@@ -1,44 +1,37 @@
 import Carousel from "react-bootstrap/Carousel";
+import { useState } from "react";
 
-export default function AccomodationGallery() {
+export default function AccomodationGallery({ accomodation }) {
+  const [slideNumber, setSlideNumber] = useState(0);
+
+  const Next = () => {
+    if (slideNumber === accomodation.img.length - 1) {
+      setSlideNumber(0);
+    } else {
+      setSlideNumber(slideNumber + 1);
+    }
+  };
+
+  const Prev = () => {
+    if (slideNumber === 0) {
+      setSlideNumber(accomodation.img.length - 1);
+    } else {
+      setSlideNumber(slideNumber - 1);
+    }
+  };
+
   return (
-    <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={process.env.PUBLIC_URL + "images/aboutBackground.png"}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={process.env.PUBLIC_URL + "images/aboutBackground.png"}
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={process.env.PUBLIC_URL + "images/aboutBackground.png"}
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <>
+      <Carousel>
+        <div className="carousel-indicators">
+          {slideNumber + 1} / {accomodation.pictures.length}
+        </div>
+        {accomodation.pictures.map((picture) => (
+          <Carousel.Item key={picture}>
+            <img className="d-block w-100" src={picture} />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </>
   );
 }

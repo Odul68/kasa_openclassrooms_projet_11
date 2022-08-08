@@ -1,11 +1,11 @@
 import AboutBackground from "../Components/AboutBackground";
-import DropdownButton from "../Components/Dropdown";
+import AboutDropdownButton from "../Components/AboutDropdown";
 
 export default function About() {
   return (
     <>
       <AboutBackground />
-      <DropdownButton />
+      <AboutDropdownButton />
     </>
   );
 }

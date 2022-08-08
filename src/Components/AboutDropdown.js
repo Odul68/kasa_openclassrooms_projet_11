@@ -1,11 +1,13 @@
 import Accordion from "react-bootstrap/Accordion";
 
-export default function DropdownButton() {
+export default function AboutDropdownButton() {
   return (
-    <Accordion defaultActiveKey="0">
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>Fiabilité</Accordion.Header>
-        <Accordion.Body>
+    <Accordion className="accordionAbout" defaultActiveKey="0" alwaysOpen>
+      <Accordion.Item className="accordionItemAbout" eventKey="0">
+        <Accordion.Header className="accordionHeaderAbout">
+          Fiabilité
+        </Accordion.Header>
+        <Accordion.Body className="accordionBodyAbout">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -15,9 +17,11 @@ export default function DropdownButton() {
           culpa qui officia deserunt mollit anim id est laborum.
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="1">
-        <Accordion.Header>Respect</Accordion.Header>
-        <Accordion.Body>
+      <Accordion.Item className="accordionItemAbout" eventKey="1">
+        <Accordion.Header className="accordionHeaderAbout">
+          Respect
+        </Accordion.Header>
+        <Accordion.Body className="accordionBodyAbout">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -27,9 +31,11 @@ export default function DropdownButton() {
           culpa qui officia deserunt mollit anim id est laborum.
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="2">
-        <Accordion.Header>Service</Accordion.Header>
-        <Accordion.Body>
+      <Accordion.Item className="accordionItemAbout" eventKey="2">
+        <Accordion.Header className="accordionHeaderAbout">
+          Service
+        </Accordion.Header>
+        <Accordion.Body className="accordionBodyAbout">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -39,9 +45,11 @@ export default function DropdownButton() {
           culpa qui officia deserunt mollit anim id est laborum.
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="3">
-        <Accordion.Header>Responsabilité</Accordion.Header>
-        <Accordion.Body>
+      <Accordion.Item className="accordionItemAbout" eventKey="3">
+        <Accordion.Header className="accordionHeaderAbout">
+          Responsabilité
+        </Accordion.Header>
+        <Accordion.Body className="accordionBodyAbout">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut

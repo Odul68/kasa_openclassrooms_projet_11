@@ -3,27 +3,37 @@
 }
 
 body {
-    max-width: 1440px;
     margin: auto;
     font-family: 'Montserrat';
+    min-height: 100vh;
+    // max-width: 1440px;
+
 }
 
 
 $color-primary: #FF6060;
 $color-secondary: #FFFFFF;
 $color-tertiary: #F6F6F6;
-$color-fourth: #3282f7;
-$color-fifth: #68d9a4;
-$color-sixth: #ed6454;
+$color-fourth: #E3E3E3;
+$color-fifth: #000000;
+
 
 
 // Header with nav menu
 
 
 .nav {
-    padding: 2rem;
+    max-width: 1240px;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 2rem;
+
+    img {
+        margin: 0;
+    }
 
     ul {
         list-style-type: none;
@@ -41,6 +51,77 @@ $color-sixth: #ed6454;
 }
 
 
+
+
+@media (max-width: 1230px){
+    .nav {
+        max-width: 900px;    
+    }
+}
+
+@media (max-width: 920px){
+    .nav {
+        max-width: 700px;    
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+    margin: 1rem;
+    flex-wrap: nowrap;  
+    align-items: center;  
+
+        a {
+            size: 16px;
+        }
+
+        img {
+        width: 100%;
+        height: 36px;
+        }
+
+        ul {
+        padding-top: 1rem;
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 576px) {
+    .container, .container-sm {
+        max-width: none; 
+    }
+}
+
+
+@media (min-width: 920px) {
+    .container, .container-lg, .container-md, .container-sm {
+        max-width: 860px;
+    }
+}
+
+@media (min-width: 1230px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: none;    
+}
+}
+
+@media (min-width: 1300px) {
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1270px;
+}
+}
+
+
+
 // Homepage - Picture and Title
  
 
@@ -49,11 +130,13 @@ $color-sixth: #ed6454;
     justify-content: center;
     position: relative;
     align-items: center;
-    margin-bottom: 4rem;
+    margin: 2rem 0 4rem 0;    
+    max-width: 100%;
 
     .homeBackgroundImage {
         border-radius: 25px;
         filter: brightness(70%);
+        max-width: 100%;
     }
 
     .homeBackgroundTitle {
@@ -63,6 +146,401 @@ $color-sixth: #ed6454;
         font-weight: 500;   
     }
 }
+
+// /* Media Queries Operation */
+@media (max-width: 1230px) {
+    .homeBackground {
+
+        .homeBackgroundImage {
+            height: 12rem;
+        }
+
+        .homeBackgroundTitle {
+            font-size: 36px;
+        }
+    }
+}
+
+@media (max-width: 920px) {
+    .homeBackground {
+
+        .homeBackgroundTitle {
+            font-size: 24px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .homeBackground {
+        margin: 1rem;
+
+        .homeBackgroundImage {
+            height: 8rem;
+        }
+
+        .homeBackgroundTitle {
+            font-size: 24px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .homeBackground {
+        margin: 0;
+
+        .homeBackgroundImage {
+            height: 8rem;
+        }
+
+        .homeBackgroundTitle {
+            font-size: 24px;
+            padding: 4rem 7rem 4rem 1rem;
+            justify-content: flex-start;
+            display: flex;
+        }
+    }
+}
+
+
+
+// Homepage - Accomodation cards 
+
+
+.accomodationCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: $color-tertiary;
+    padding: 2rem 1rem;
+    border-radius: 25px;
+    margin-bottom: 16rem; // temporary - to change later when solution found for footer
+    max-width: 1240px;
+
+    .accomodationCards {
+        width: 340px;
+        height: 340px;
+        margin: 1.5rem;
+        position: relative;
+  
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+            object-position: center;
+            border-radius: 10px;
+
+        }
+    
+
+        p {
+            position: absolute;
+            bottom: 0;
+            margin-left: 1rem;
+            font-size: 18px;
+            color: $color-secondary;
+        }
+    }
+}
+
+/* Media Queries Operation */
+@media (max-width: 920px) {
+    .accomodationCards {
+        min-width: fit-content;
+        height: auto;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .accomodationCardsContainer {
+        background-color: $color-secondary;
+        padding: 0;
+        .accomodationCards {
+            margin: 1rem;
+        }
+    }
+
+}
+
+@media (max-width: 480px) {
+    .accomodationCardsContainer {
+
+        .accomodationCards {
+            min-width: 100%;
+            height: 255px;
+            margin: 1rem;
+        }
+    }
+
+}
+
+
+// Accomodation Page - Carousel
+
+
+.carousel {
+
+    .carousel-inner {
+
+        .carousel-item {
+            height: 26rem;  
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 25px;
+                }
+        }
+    }
+
+    .carousel-control-next, .carousel-control-prev {
+        opacity: 1;
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            height: 7rem;
+            width: 9rem;
+        }
+    }
+
+    .carousel-indicators > button {
+        display: none;
+
+    }
+
+    .trial {
+        position: absolute;
+        z-index: 1000;
+    }
+
+}
+
+
+
+
+@media (max-width: 768px) {
+    .carousel {
+        .carousel-inner {
+            .carousel-item {
+                height: 16rem;  
+            }
+        }
+    }
+}
+
+
+// Accomodation Page - Information section
+
+
+.accomodationInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    .primaryInformation {
+        h1 {
+            color: $color-primary;
+            font-size: 36px;
+        }
+
+        p {
+            color: $color-primary;
+            font-size: 18px;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .accomodationTag {
+            background-color: $color-primary;
+            margin-right: 1rem;
+            font-size: 14px;
+            color: $color-secondary;
+            padding: 3px 30px;
+            border-radius: 10px;
+        }
+    }
+
+    .secondaryInformation {
+
+        .hostInformation {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+            p {
+                width: 4rem;
+                text-align: end;
+                margin-right: 1rem;
+                margin-top: 1rem;
+                color: $color-primary;
+            }
+
+            img {
+                width: 64px;
+                height: 64px;
+                border-radius: 100%;
+
+            }
+        }
+
+        .ratingsInformation {
+            margin-top: 1rem;
+
+            i{
+                color: $color-fourth;
+                font-size: 42px;
+                margin-right: 0.5rem;
+            }
+        
+            i.colored {
+                color: $color-primary;
+                font-size: 42px;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}
+
+
+/* Media Queries Operation */
+@media (max-width: 920px) {
+    .accomodationInfo {
+        flex-direction: column;
+
+        .primaryInformation {
+            h1 {
+                font-size: 18px;
+            }
+    
+            p {
+                font-size: 14px;
+                margin-top: 0.3rem;
+                margin-bottom: 0.5rem;
+            }
+    
+            .accomodationTag {
+                font-size: 10px;
+                padding: 1px 12px;
+                border-radius: 5px;
+            }
+        }
+
+        .secondaryInformation {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+
+            .hostInformation {
+    
+                p {
+
+                    font-size: 12px;
+                }
+    
+                img {
+                    width: 32px;
+                    height: 32px;
+    
+                }
+            }
+    
+            .ratingsInformation {
+
+                i{
+                    font-size: 15px;
+                }
+            
+                i.colored {
+                    font-size: 15px;
+                }
+            }
+        }
+
+    }
+
+}
+
+
+// Accomodation Page - Dropdown 
+
+
+.accordionAccomodation {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    .accordionItemAccomodation {
+        margin-bottom: 2rem;
+        border: none;
+        box-shadow: none;
+        width: 582px;
+    }
+
+    .accordion-button{
+        background-color: $color-primary;
+        border-radius: 5px;
+        color: $color-secondary;
+    }
+    
+    .accordion-button:focus {
+        box-shadow: none;
+    }
+    
+    .accordion-button::after {
+        background-image: url(/public/images/arrowDownWhite.png);
+    }
+    
+    .accordion-button:not(.collapsed)::after {
+        background-image: url(/public/images/arrowUpWhite.png);
+    }
+    
+    .accordion-button:not(.collapsed) {
+        background-color: $color-primary;
+        color: $color-secondary;
+    }
+    
+    .accordion-collapse {
+        background-color: $color-tertiary;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .accordionBodyAccomodation {
+        color: $color-primary;
+        font-size: 18px;
+        list-style-type: none;
+    }
+}    
+
+
+
+@media (max-width: 1230px) {
+    .accordionAccomodation {
+        .accordionItemAccomodation {
+            width: 380px;
+        }
+    } 
+}
+
+
+@media (max-width: 920px) {
+    .accordionAccomodation {
+        flex-direction: column;
+        .accordionItemAccomodation {
+            width: auto;
+        }
+    } 
+}
+
+
+
+
+
+
+
 
 
 // About page - Image background
@@ -78,34 +556,32 @@ $color-sixth: #ed6454;
     .aboutBackgroundImage {
         border-radius: 25px;
         filter: brightness(70%);
+        max-width: 100%;
     }
 }
 
 
-.accomodationCardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: $color-tertiary;
-    padding: 2rem;
-    border-radius: 25px;
 
-    .accomodationCards {
-        width: 340px;
-        height: 340px;
-        margin: 2rem;
-        position: relative;
-        border-radius: 10px;
-        background-size: cover;
-        background-position: center;
 
-        p {
-            position: absolute;
-            bottom: 0;
-            margin-left: 1rem;
-            font-size: 18px;
-            color: $color-secondary;
-        }
+@media (max-width: 920px) {
+    .aboutBackground {
+        margin: 1rem 3rem 3rem 3rem ;
+
+        .aboutBackgroundImage {
+            height: 10rem;  
+      }
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutBackground {
+        margin: 1rem 2rem 2rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutBackground {
+        margin: 1rem;
     }
 }
 
@@ -113,12 +589,12 @@ $color-sixth: #ed6454;
 // About page - Accordion buttons with information
 
 
-.accordion {
+.accordionAbout {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 
-    .accordion-item {
+    .accordionItemAbout {
         margin-bottom: 2rem;
         border: none;
         box-shadow: none;
@@ -155,7 +631,100 @@ $color-sixth: #ed6454;
     }
 }
 
+@media (max-width: 920px) {
+    .accordionAbout {
+        margin: 1rem 3rem 3rem 3rem ;
+    }
+}
 
+@media (max-width: 768px) {
+    .accordionAbout {
+        margin: 1rem 2rem 2rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .accordionAbout {
+        margin: 1rem;
+    }
+}
+
+
+// Page 404 
+
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+
+    h1 {
+        font-size: 288px;
+        font-weight: 700;
+        color: $color-primary;
+    }
+
+    p {
+        font-size: 36px;
+        font-weight: 500;
+        color: $color-primary;
+    }
+
+    .link404 {
+        margin-top: 6rem;
+        font-size: 18px;
+        color: $color-primary;
+    }
+}
+
+
+@media (max-width: 920px) {
+    .notFound {
+        h1 {
+            font-size: 96px;
+            font-weight: 700;
+            color: $color-primary;
+        }
+    
+        p {
+            font-size: 18px;
+            font-weight: 500;
+            color: $color-primary;
+            text-align: center;
+        }
+    
+        .link404 {
+            margin-top: 6rem;
+            font-size: 14px;
+            color: $color-primary;
+        }
+    }
+}
+
+
+
+// Footer 
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $color-fifth;
+    text-align: center;
+    padding: 1rem;
+
+    img {
+        margin-top: 3.5rem;
+        margin-bottom: 2rem;
+    }
+    p {
+        color: $color-secondary;
+        font-size: 24px;
+    }
+
+}
 
 
 

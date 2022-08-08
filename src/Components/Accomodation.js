@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Accomodation() {
+export default function Accomodation(accomodation) {
   const [data, setData] = useState([]);
 
   const getData = () => {
@@ -26,15 +26,14 @@ export default function Accomodation() {
   return (
     <div className="accomodationCardsContainer">
       {data.map((item) => (
-        <div
+        <Link
+          to={`/accomodationDetails/${item.id}`}
+          key={item.id}
           className="accomodationCards"
-          style={{ backgroundImage: `url(${item.pictures[0]})` }}
         >
+          <img src={item.cover} />
           <p>{item.title}</p>
-          <Link to={`/accomodationDetails/${item.id}`} key={item.id}>
-            Trial
-          </Link>
-        </div>
+        </Link>
       ))}
     </div>
   );
