@@ -12,11 +12,9 @@ export default function Accomodation(accomodation) {
       },
     })
       .then(function (response) {
-        console.log(response);
         return response.json();
       })
       .then(function (myJson) {
-        console.log(myJson);
         setData(myJson);
       });
   };
@@ -27,7 +25,7 @@ export default function Accomodation(accomodation) {
     <div className="accomodationCardsContainer">
       {data.map((item) => (
         <Link
-          to={`/accomodationDetails/${item.id}`}
+          to={`/accomodationDetails/${item.id}`} // Goes to the accomodationDetails page with the correct id
           key={item.id}
           className="accomodationCards"
         >

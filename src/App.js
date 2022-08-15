@@ -7,8 +7,6 @@ import PageNotfound from "./Pages/404";
 import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom";
 
-// Ask about several pages returning home, can I use more "element" in one Route ?
-
 function App() {
   return (
     <>
@@ -24,7 +22,7 @@ function App() {
           <Route path="/404" element={<PageNotfound />} />
         </Routes>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

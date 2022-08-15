@@ -5,7 +5,7 @@ export default function AccomodationDropdown({ accomodation }) {
     <Accordion
       className="accordionAccomodation"
       defaultActiveKey="0"
-      alwaysOpen
+      alwaysOpen // stays open when others are clicked on
     >
       <Accordion.Item className="accordionItemAccomodation" eventKey="0">
         <Accordion.Header className="accordionHeaderAccomodation">
@@ -21,7 +21,7 @@ export default function AccomodationDropdown({ accomodation }) {
         </Accordion.Header>
         <Accordion.Body className="accordionBodyAccomodation">
           {accomodation.equipments.map((equipment) => (
-            <li>{equipment}</li>
+            <li key={equipment}>{equipment}</li>
           ))}
         </Accordion.Body>
       </Accordion.Item>

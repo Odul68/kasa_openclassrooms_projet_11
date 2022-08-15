@@ -7,7 +7,9 @@ export default function AccomodationPageInformation({ accomodation }) {
         <h1>{accomodation.title}</h1>
         <p>{accomodation.location}</p>
         {accomodation.tags.map((tag) => (
-          <span className="accomodationTag">{tag}</span>
+          <span key={tag} className="accomodationTag">
+            {tag}
+          </span>
         ))}
       </div>
       <div className="secondaryInformation">
@@ -20,12 +22,12 @@ export default function AccomodationPageInformation({ accomodation }) {
           />
         </div>
         <div className="ratingsInformation">
-          {ratingScale.map((scale) => (
+          {ratingScale.map((scale, index) => (
             <i
               className={`fas fa-star${
-                scale <= accomodation.rating ? " colored" : ""
+                scale <= accomodation.rating ? " colored" : "" // Number of stars colored
               }`}
-              key={`star-${scale}`}
+              key={`star-${index}`}
             ></i>
           ))}
         </div>

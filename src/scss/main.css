@@ -27,7 +27,6 @@ body {
 }
 .nav a {
   color: inherit;
-  size: 24px;
   font-weight: 500;
   color: #FF6060;
   text-decoration: none;
@@ -49,9 +48,6 @@ body {
     flex-wrap: nowrap;
     align-items: center;
   }
-  .nav a {
-    size: 16px;
-  }
   .nav img {
     width: 100%;
     height: 36px;
@@ -60,6 +56,10 @@ body {
     padding-top: 1rem;
   }
 }
+.container {
+  margin-top: 2rem;
+}
+
 @media (min-width: 576px) {
   .container, .container-sm {
     max-width: none;
@@ -218,9 +218,13 @@ body {
 .carousel .carousel-indicators > button {
   display: none;
 }
-.carousel .trial {
+
+.carousel-wrapper {
+  position: relative;
+}
+.carousel-wrapper .carousel-indicators {
   position: absolute;
-  z-index: 1000;
+  color: #FFFFFF;
 }
 
 @media (max-width: 768px) {
@@ -254,7 +258,7 @@ body {
 .accomodationInfo .secondaryInformation .hostInformation {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .accomodationInfo .secondaryInformation .hostInformation p {
   width: 4rem;

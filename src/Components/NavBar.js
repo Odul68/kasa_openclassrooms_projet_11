@@ -15,6 +15,7 @@ export default function NavBar() {
 }
 
 function CustomLink({ to, children, ...props }) {
+  // Nav stays on each page with active links
   const resolvedPath = useResolvedPath(to);
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
   return (
