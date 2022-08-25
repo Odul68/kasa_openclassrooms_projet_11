@@ -1,12 +1,18 @@
 * {
     box-sizing: border-box;
+    // position: relative;
 }
 
 body {
     margin: auto;
     font-family: 'Montserrat';
+}
+
+#root {
+
     min-height: 100vh;
-    // max-width: 1440px;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -28,11 +34,12 @@ $color-fifth: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
-    margin-top: 2rem;
+    margin: 2rem auto 1rem auto;
+
+
 
     img {
-        margin: 0;
+        margin: 0 50rem 0 0; 
     }
 
     ul {
@@ -41,28 +48,45 @@ $color-fifth: #000000;
         gap: 2rem;
     }
 
-    a {
+    .navBarLink {
         color: inherit;
         font-weight: 500;
         color: $color-primary;
         text-decoration: none;
+
     }
+
+    .active {
+        text-decoration: underline;
+    }
+
+
 }
+
+
 
 // /* Media Queries Operation */
 @media (max-width: 1230px){
     .nav {
-        max-width: 900px;    
+        max-width: 900px;  
+        
+        img {
+            margin: 0 20rem 0 0; 
+        }
     }
 }
 
 @media (max-width: 920px){
     .nav {
         max-width: 700px;    
+
+        img {
+            margin: 0 10rem 0 0; 
+        }
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 610px) {
     .nav {
     margin: 1rem;
     flex-wrap: nowrap;  
@@ -71,6 +95,8 @@ $color-fifth: #000000;
         img {
         width: 100%;
         height: 36px;
+        margin: 0; 
+
         }
 
         ul {
@@ -87,8 +113,7 @@ $color-fifth: #000000;
 
 
 .container {
-
-    margin-top: 2rem;
+    margin-bottom: 10rem;
 }
 
 // /* Media Queries Operation */
@@ -209,7 +234,6 @@ $color-fifth: #000000;
     background-color: $color-tertiary;
     padding: 2rem 1rem;
     border-radius: 25px;
-    margin-bottom: 16rem;
     max-width: 1240px;
 
     .accomodationCards {
@@ -269,54 +293,65 @@ $color-fifth: #000000;
 // +++++++++++++++++++++++++++++++++++++++++ Accomodation Page - Carousel +++++++++++++++++++++++++++++++++++++++++
 
 
-.carousel {
-
-    .carousel-inner {
-
-        .carousel-item {
-            height: 26rem;  
-
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                object-position: center;
-                border-radius: 25px;
-                }
-        }
-    }
-
-    .carousel-control-next, .carousel-control-prev {
-        opacity: 1;
-
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            height: 7rem;
-            width: 9rem;
-        }
-    }
-
-    .carousel-indicators > button {
-        display: none;
-
-    }
-
-}
-
-.carousel-wrapper {
+.sliderContainer {
+    width: 100%;
+    height: 415px;
     position: relative;
-    .carousel-indicators {
+    display: flex;
+
+    .sliderImage {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 25px;
+        position: relative;
+    }
+
+    .sliderPrevArrow {
         position: absolute;
+        z-index: 10;
+        top: 40%;
+        left: 2rem;
+        cursor: pointer;
+    }
+
+    .sliderNextArrow {
+        position: absolute;
+        top: 40%;
+        right: 2rem;
+        cursor: pointer;
+    }
+
+    .sliderIndicators {
+        position: absolute;
+        z-index: 100;
+        top: 85%;
+        left: 50%;
         color: $color-secondary;
     }
 }
 
+
 // /* Media Queries Operation */
 @media (max-width: 768px) {
-    .carousel {
-        .carousel-inner {
-            .carousel-item {
-                height: 16rem;  
-            }
+    .sliderContainer {
+        height: 255px;
+
+        .sliderNextArrow {
+            height: 20px;
+            width: 12px;
+            top: 50%;
+        }
+
+        .sliderPrevArrow {
+            height: 20px;
+            width: 12px;
+            top: 50%;
+        }
+
+        .sliderIndicators {
+            display: none;
         }
     }
 }
@@ -456,70 +491,139 @@ $color-fifth: #000000;
 // +++++++++++++++++++++++++++++++++++++++++ Accomodation Page - Dropdown +++++++++++++++++++++++++++++++++++++++++
 
 
-.accordionAccomodation {
-    margin-top: 4rem;
+.accordionSection {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: $color-secondary;
+}
 
-    .accordionItemAccomodation {
-        margin-bottom: 2rem;
-        border: none;
-        box-shadow: none;
+.accordionContainer {
+    box-shadow: 12px;
+    max-width: 1023px;
+
+}
+
+.accordionButtonWrap {
+    width: 1023px;
+    height: 47px;
+    background: $color-primary;
+    color: $color-secondary;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    h1 {
+        font-size: 24px;
+        margin: 0;
+    }
+}
+
+.dropdownContent {
+    color: $color-primary;
+    font-size: 24px;
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: $color-tertiary;
+    border-radius: 5px;
+}
+
+
+.accomodationDropdownSection {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    .accordionContainer {
+        max-width: 100%;
+    }
+
+    .accordionButtonWrap {
         width: 582px;
+        height: 52px;
+
+
+        h1 {
+            font-size: 18px;
+            margin: 0;
+        }
     }
 
-    .accordion-button{
-        background-color: $color-primary;
-        border-radius: 5px;
-        color: $color-secondary;
-    }
-    
-    .accordion-button:focus {
-        box-shadow: none;
-    }
-    
-    .accordion-button::after {
-        background-image: url(/public/images/arrowDownWhite.png);
-    }
-    
-    .accordion-button:not(.collapsed)::after {
-        background-image: url(/public/images/arrowUpWhite.png);
-    }
-    
-    .accordion-button:not(.collapsed) {
-        background-color: $color-primary;
-        color: $color-secondary;
-    }
-    
-    .accordion-collapse {
-        background-color: $color-tertiary;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-    }
-
-    .accordionBodyAccomodation {
-        color: $color-primary;
+    .dropdownContent {
+        width: 582px;
+        height: 249px;
         font-size: 18px;
+        padding: 1rem;
         list-style-type: none;
-    }
-}    
+        line-height: 25px;
+        overflow: auto;
 
+    }
+
+
+}
 
 // /* Media Queries Operation */
 @media (max-width: 1230px) {
-    .accordionAccomodation {
-        .accordionItemAccomodation {
+    .accomodationDropdownSection {
+        .accordionButtonWrap {
+            width: 380px;
+        }
+
+        .dropdownContent {
             width: 380px;
         }
     } 
 }
 
 @media (max-width: 920px) {
-    .accordionAccomodation {
+    .accomodationDropdownSection {
         flex-direction: column;
-        .accordionItemAccomodation {
+        .accordionButtonWrap {
+            width: 480px;
+        }
+
+        .dropdownContent {
+            width: 480px;
+            height: auto;
+        }
+    } 
+}
+
+@media (max-width: 490px) {
+
+
+    .accomodationDropdownSection {
+        flex-direction: column;
+        .accordionButtonWrap {
             width: auto;
+            height: 30px;
+
+            h1 {
+                font-size: 13px;
+            }
+
+            img {
+                width: 15.2px;
+                height: 8.96px;
+            }
+        }
+
+        .dropdownContent {
+            width: inherit;
+            height: auto;
+            font-size: 12px;
+        }
+
+        .accordionContainer{
+            width: 100%;
         }
     } 
 }
@@ -569,65 +673,72 @@ $color-fifth: #000000;
 // +++++++++++++++++++++++++++++++++++++++++ About page - Accordion buttons with information +++++++++++++++++++++++++++++++++++++++++
 
 
-.accordionAbout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 
-    .accordionItemAbout {
-        margin-bottom: 2rem;
-        border: none;
-        box-shadow: none;
-        width: 1023px;
-    }
-
-    .accordion-button{
-        background-color: $color-primary;
-        border-radius: 5px;
-        color: $color-secondary;
-    }
-    
-    .accordion-button:focus {
-        box-shadow: none;
-    }
-    
-    .accordion-button::after {
-        background-image: url(/public/images/arrowDownWhite.png);
-    }
-    
-    .accordion-button:not(.collapsed)::after {
-        background-image: url(/public/images/arrowUpWhite.png);
-    }
-    
-    .accordion-button:not(.collapsed) {
-        background-color: $color-primary;
-        color: $color-secondary;
-    }
-    
-    .accordion-collapse {
-        background-color: $color-tertiary;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-    }
-}
 
 // /* Media Queries Operation */
+@media (max-width: 1230px) {
+    .aboutDropdownSection {
+        .accordionButtonWrap {
+            width: 800px;
+        }
+        
+        .dropdownContent {
+            width: 800px;
+        }
+    } 
+}
+
 @media (max-width: 920px) {
-    .accordionAbout {
-        margin: 1rem 3rem 3rem 3rem ;
-    }
+    .aboutDropdownSection {
+        .accordionButtonWrap {
+            width: 650px;
+        }
+        
+        .dropdownContent {
+            width: 650px;
+        }
+    } 
 }
 
-@media (max-width: 768px) {
-    .accordionAbout {
-        margin: 1rem 2rem 2rem 2rem;
-    }
+@media (max-width: 720px) {
+    .aboutDropdownSection {
+        .accordionButtonWrap {
+            width: 500px;
+        }
+        
+        .dropdownContent {
+            width: 500px;
+        }
+    } 
 }
 
-@media (max-width: 480px) {
-    .accordionAbout {
+@media (max-width: 520px) {
+    .aboutDropdownSection {
+        justify-content: center;
         margin: 1rem;
-    }
+        .accordionButtonWrap {
+            width: auto;
+            height: 30px;
+
+            h1 {
+                font-size: 13px;
+            }
+
+            img {
+                width: 15.2px;
+                height: 8.98px;
+            }
+        }
+        
+        .dropdownContent {
+            width: auto;
+            font-size: 12px;
+        }
+
+        .accordionContainer{
+            width: 100%;
+        }
+    } 
 }
 
 
@@ -688,13 +799,11 @@ $color-fifth: #000000;
 
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     background-color: $color-fifth;
     text-align: center;
     padding: 1rem;
+    width: 100%;
+    margin-top: auto;
 
     img {
         margin-top: 3.5rem;
@@ -706,6 +815,20 @@ footer {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

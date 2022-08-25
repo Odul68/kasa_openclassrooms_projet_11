@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Accomodation({ one }) {
+export default function Accomodation() {
   const [data, setData] = useState([]);
 
   const getData = () => {
@@ -29,7 +29,7 @@ export default function Accomodation({ one }) {
           key={item.id}
           className="accomodationCards"
         >
-          <img src={item.cover} />
+          <img src={item.cover} alt="cover" />
           <p>{item.title}</p>
         </Link>
       ))}

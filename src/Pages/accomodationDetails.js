@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AccomodationDropdown from "../Components/AccomodationPageDropdown";
-import AccomodationGallery from "../Components/AccomodationPageGallery";
+import Dropdown from "../Components/Dropdown";
+import Slider from "../Components/Slider";
 import AccomodationPageInformation from "../Components/AccomodationPageInfo";
 
 const fetchAccomodation = async () => {
@@ -28,9 +28,16 @@ export default function GoToAccomodation() {
   }, [accomodationId]);
   return accomodation ? ( // returns datas according to the accomodationId
     <>
-      <AccomodationGallery accomodation={accomodation} />
+      <Slider images={accomodation.pictures} />
       <AccomodationPageInformation accomodation={accomodation} />
-      <AccomodationDropdown accomodation={accomodation} />
+      <div className="accomodationDropdownSection">
+        <div className="accomodationDropdownWrap">
+          <Dropdown title="Description" content={accomodation.description} />
+        </div>
+        <div className="accomodationDropdownWrap">
+          <Dropdown title="Équipements" content={accomodation.equipments} />
+        </div>
+      </div>
     </>
   ) : (
     "loading"

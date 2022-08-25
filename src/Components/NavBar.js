@@ -1,14 +1,19 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, NavLink, useMatch, useResolvedPath } from "react-router-dom";
+import logo from "../icons/logo.png";
 
 export default function NavBar() {
   return (
     <nav className="nav">
-      <Link to="/404" className="siteName">
-        <img src={process.env.PUBLIC_URL + "images/logo.png"} alt="logo"></img>
+      <Link to="/" className="siteName">
+        <img src={logo} alt="logo"></img>
       </Link>
       <ul>
-        <CustomLink to="/Home">Accueil</CustomLink>
-        <CustomLink to="/About">À propos</CustomLink>
+        <NavLink className="navBarLink" to="/">
+          Accueil
+        </NavLink>
+        <NavLink className="navBarLink" to="/About">
+          À propos
+        </NavLink>
       </ul>
     </nav>
   );

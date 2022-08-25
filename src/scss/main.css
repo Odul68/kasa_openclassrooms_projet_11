@@ -5,7 +5,12 @@
 body {
   margin: auto;
   font-family: "Montserrat";
+}
+
+#root {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav {
@@ -14,35 +19,43 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: auto;
-  margin-top: 2rem;
+  margin: 2rem auto 1rem auto;
 }
 .nav img {
-  margin: 0;
+  margin: 0 50rem 0 0;
 }
 .nav ul {
   list-style-type: none;
   display: flex;
   gap: 2rem;
 }
-.nav a {
+.nav .navBarLink {
   color: inherit;
   font-weight: 500;
   color: #FF6060;
   text-decoration: none;
+}
+.nav .active {
+  text-decoration: underline;
 }
 
 @media (max-width: 1230px) {
   .nav {
     max-width: 900px;
   }
+  .nav img {
+    margin: 0 20rem 0 0;
+  }
 }
 @media (max-width: 920px) {
   .nav {
     max-width: 700px;
   }
+  .nav img {
+    margin: 0 10rem 0 0;
+  }
 }
-@media (max-width: 480px) {
+@media (max-width: 610px) {
   .nav {
     margin: 1rem;
     flex-wrap: nowrap;
@@ -51,13 +64,14 @@ body {
   .nav img {
     width: 100%;
     height: 36px;
+    margin: 0;
   }
   .nav ul {
     padding-top: 1rem;
   }
 }
 .container {
-  margin-top: 2rem;
+  margin-bottom: 10rem;
 }
 
 @media (min-width: 576px) {
@@ -145,7 +159,6 @@ body {
   background-color: #F6F6F6;
   padding: 2rem 1rem;
   border-radius: 25px;
-  margin-bottom: 16rem;
   max-width: 1240px;
 }
 .accomodationCardsContainer .accomodationCards {
@@ -196,10 +209,13 @@ body {
     margin: 1rem;
   }
 }
-.carousel .carousel-inner .carousel-item {
-  height: 26rem;
+.sliderContainer {
+  width: 100%;
+  height: 415px;
+  position: relative;
+  display: flex;
 }
-.carousel .carousel-inner .carousel-item img {
+.sliderContainer .sliderImage {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -207,29 +223,45 @@ body {
   -o-object-position: center;
      object-position: center;
   border-radius: 25px;
-}
-.carousel .carousel-control-next, .carousel .carousel-control-prev {
-  opacity: 1;
-}
-.carousel .carousel-control-next .carousel-control-prev-icon, .carousel .carousel-control-next .carousel-control-next-icon, .carousel .carousel-control-prev .carousel-control-prev-icon, .carousel .carousel-control-prev .carousel-control-next-icon {
-  height: 7rem;
-  width: 9rem;
-}
-.carousel .carousel-indicators > button {
-  display: none;
-}
-
-.carousel-wrapper {
   position: relative;
 }
-.carousel-wrapper .carousel-indicators {
+.sliderContainer .sliderPrevArrow {
   position: absolute;
+  z-index: 10;
+  top: 40%;
+  left: 2rem;
+  cursor: pointer;
+}
+.sliderContainer .sliderNextArrow {
+  position: absolute;
+  top: 40%;
+  right: 2rem;
+  cursor: pointer;
+}
+.sliderContainer .sliderIndicators {
+  position: absolute;
+  z-index: 100;
+  top: 85%;
+  left: 50%;
   color: #FFFFFF;
 }
 
 @media (max-width: 768px) {
-  .carousel .carousel-inner .carousel-item {
-    height: 16rem;
+  .sliderContainer {
+    height: 255px;
+  }
+  .sliderContainer .sliderNextArrow {
+    height: 20px;
+    width: 12px;
+    top: 50%;
+  }
+  .sliderContainer .sliderPrevArrow {
+    height: 20px;
+    width: 12px;
+    top: 50%;
+  }
+  .sliderContainer .sliderIndicators {
+    display: none;
   }
 }
 .accomodationInfo {
@@ -323,58 +355,117 @@ body {
     font-size: 15px;
   }
 }
-.accordionAccomodation {
-  margin-top: 4rem;
+.accordionSection {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #FFFFFF;
 }
-.accordionAccomodation .accordionItemAccomodation {
-  margin-bottom: 2rem;
-  border: none;
-  box-shadow: none;
-  width: 582px;
+
+.accordionContainer {
+  box-shadow: 12px;
+  max-width: 1023px;
 }
-.accordionAccomodation .accordion-button {
-  background-color: #FF6060;
+
+.accordionButtonWrap {
+  width: 1023px;
+  height: 47px;
+  background: #FF6060;
+  color: #FFFFFF;
   border-radius: 5px;
-  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
-.accordionAccomodation .accordion-button:focus {
-  box-shadow: none;
+.accordionButtonWrap h1 {
+  font-size: 24px;
+  margin: 0;
 }
-.accordionAccomodation .accordion-button::after {
-  background-image: url(/public/images/arrowDownWhite.png);
-}
-.accordionAccomodation .accordion-button:not(.collapsed)::after {
-  background-image: url(/public/images/arrowUpWhite.png);
-}
-.accordionAccomodation .accordion-button:not(.collapsed) {
-  background-color: #FF6060;
-  color: #FFFFFF;
-}
-.accordionAccomodation .accordion-collapse {
-  background-color: #F6F6F6;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.accordionAccomodation .accordionBodyAccomodation {
+
+.dropdownContent {
   color: #FF6060;
+  font-size: 24px;
+  margin-top: -2rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #F6F6F6;
+  border-radius: 5px;
+}
+
+.accomodationDropdownSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.accomodationDropdownSection .accordionContainer {
+  max-width: 100%;
+}
+.accomodationDropdownSection .accordionButtonWrap {
+  width: 582px;
+  height: 52px;
+}
+.accomodationDropdownSection .accordionButtonWrap h1 {
   font-size: 18px;
+  margin: 0;
+}
+.accomodationDropdownSection .dropdownContent {
+  width: 582px;
+  height: 249px;
+  font-size: 18px;
+  padding: 1rem;
   list-style-type: none;
+  line-height: 25px;
+  overflow: auto;
 }
 
 @media (max-width: 1230px) {
-  .accordionAccomodation .accordionItemAccomodation {
+  .accomodationDropdownSection .accordionButtonWrap {
+    width: 380px;
+  }
+  .accomodationDropdownSection .dropdownContent {
     width: 380px;
   }
 }
 @media (max-width: 920px) {
-  .accordionAccomodation {
+  .accomodationDropdownSection {
     flex-direction: column;
   }
-  .accordionAccomodation .accordionItemAccomodation {
+  .accomodationDropdownSection .accordionButtonWrap {
+    width: 480px;
+  }
+  .accomodationDropdownSection .dropdownContent {
+    width: 480px;
+    height: auto;
+  }
+}
+@media (max-width: 490px) {
+  .accomodationDropdownSection {
+    flex-direction: column;
+  }
+  .accomodationDropdownSection .accordionButtonWrap {
     width: auto;
+    height: 30px;
+  }
+  .accomodationDropdownSection .accordionButtonWrap h1 {
+    font-size: 13px;
+  }
+  .accomodationDropdownSection .accordionButtonWrap img {
+    width: 15.2px;
+    height: 8.96px;
+  }
+  .accomodationDropdownSection .dropdownContent {
+    width: inherit;
+    height: auto;
+    font-size: 12px;
+  }
+  .accomodationDropdownSection .accordionContainer {
+    width: 100%;
   }
 }
 .aboutBackground {
@@ -408,54 +499,52 @@ body {
     margin: 1rem;
   }
 }
-.accordionAbout {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+@media (max-width: 1230px) {
+  .aboutDropdownSection .accordionButtonWrap {
+    width: 800px;
+  }
+  .aboutDropdownSection .dropdownContent {
+    width: 800px;
+  }
 }
-.accordionAbout .accordionItemAbout {
-  margin-bottom: 2rem;
-  border: none;
-  box-shadow: none;
-  width: 1023px;
-}
-.accordionAbout .accordion-button {
-  background-color: #FF6060;
-  border-radius: 5px;
-  color: #FFFFFF;
-}
-.accordionAbout .accordion-button:focus {
-  box-shadow: none;
-}
-.accordionAbout .accordion-button::after {
-  background-image: url(/public/images/arrowDownWhite.png);
-}
-.accordionAbout .accordion-button:not(.collapsed)::after {
-  background-image: url(/public/images/arrowUpWhite.png);
-}
-.accordionAbout .accordion-button:not(.collapsed) {
-  background-color: #FF6060;
-  color: #FFFFFF;
-}
-.accordionAbout .accordion-collapse {
-  background-color: #F6F6F6;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
 @media (max-width: 920px) {
-  .accordionAbout {
-    margin: 1rem 3rem 3rem 3rem;
+  .aboutDropdownSection .accordionButtonWrap {
+    width: 650px;
+  }
+  .aboutDropdownSection .dropdownContent {
+    width: 650px;
   }
 }
-@media (max-width: 768px) {
-  .accordionAbout {
-    margin: 1rem 2rem 2rem 2rem;
+@media (max-width: 720px) {
+  .aboutDropdownSection .accordionButtonWrap {
+    width: 500px;
+  }
+  .aboutDropdownSection .dropdownContent {
+    width: 500px;
   }
 }
-@media (max-width: 480px) {
-  .accordionAbout {
+@media (max-width: 520px) {
+  .aboutDropdownSection {
+    justify-content: center;
     margin: 1rem;
+  }
+  .aboutDropdownSection .accordionButtonWrap {
+    width: auto;
+    height: 30px;
+  }
+  .aboutDropdownSection .accordionButtonWrap h1 {
+    font-size: 13px;
+  }
+  .aboutDropdownSection .accordionButtonWrap img {
+    width: 15.2px;
+    height: 8.98px;
+  }
+  .aboutDropdownSection .dropdownContent {
+    width: auto;
+    font-size: 12px;
+  }
+  .aboutDropdownSection .accordionContainer {
+    width: 100%;
   }
 }
 .notFound {
@@ -499,13 +588,11 @@ body {
   }
 }
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   background-color: #000000;
   text-align: center;
   padding: 1rem;
+  width: 100%;
+  margin-top: auto;
 }
 footer img {
   margin-top: 3.5rem;
