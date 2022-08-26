@@ -18,7 +18,9 @@ export default function Accomodation() {
         setData(myJson);
       });
   };
+
   useEffect(() => {
+    // Launch getData function once at the start when the array is empty and fills it with all the information
     getData();
   }, []);
   return (

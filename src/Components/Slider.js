@@ -7,11 +7,11 @@ const Slider = (props) => {
   const [index, setIndex] = useState(0);
 
   const prev = () => {
-    setIndex(index === 0 ? images.length - 1 : index - 1);
+    setIndex(index === 0 ? images.length - 1 : index - 1); // Si sur la première image, retourne à la dernière, sinon juste la précédente
   };
 
   const next = () => {
-    setIndex(index === images.length - 1 ? 0 : index + 1);
+    setIndex(index === images.length - 1 ? 0 : index + 1); // Si sur la dernière image, retourne à la première, sinon juste la suivante
   };
 
   if (images.length === 1) {

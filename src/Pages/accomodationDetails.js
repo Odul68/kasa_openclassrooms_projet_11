@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Dropdown from "../Components/Dropdown";
 import Slider from "../Components/Slider";
-import AccomodationPageInformation from "../Components/AccomodationPageInfo";
+import AccomodationInfos from "../Components/AccomodationInfos";
 
 const fetchAccomodation = async () => {
   const res = await fetch("../accomodation.json", {
@@ -29,7 +29,7 @@ export default function GoToAccomodation() {
   return accomodation ? ( // returns datas according to the accomodationId
     <>
       <Slider images={accomodation.pictures} />
-      <AccomodationPageInformation accomodation={accomodation} />
+      <AccomodationInfos accomodation={accomodation} />
       <div className="accomodationDropdownSection">
         <div className="accomodationDropdownWrap">
           <Dropdown title="Description" content={accomodation.description} />

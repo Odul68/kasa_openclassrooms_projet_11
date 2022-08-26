@@ -22,6 +22,7 @@ const Dropdown = (props) => {
         <div className="accordionButtonWrap" onClick={() => toggle(content)}>
           <h1>{title}</h1>
           <span>
+            {/* To switch the arrow when content is open or closed */}
             {clicked === content ? (
               <img src={arrowUp} alt="arrowUp" />
             ) : (
@@ -29,6 +30,9 @@ const Dropdown = (props) => {
             )}
           </span>
         </div>
+        {/* If the title is "Équipements", then the content will be a list 
+          if not then just a text container
+        */}
         {clicked === content ? (
           title === "Équipements" ? (
             <ul className="dropdownContent">
