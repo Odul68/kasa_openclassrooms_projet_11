@@ -4,15 +4,17 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import GoToAccomodation from "./Pages/accomodationDetails";
 import Footer from "./Components/Footer";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import NotFound from "./Components/NotFound";
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
       <NavBar />
       <div className="container">
-        <Routes>
+        <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route

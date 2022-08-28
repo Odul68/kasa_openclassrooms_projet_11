@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Dropdown from "../Components/Dropdown";
 import Slider from "../Components/Slider";
 import AccomodationInfos from "../Components/AccomodationInfos";
+import NotFound from "../Components/NotFound";
 
 const fetchAccomodation = async () => {
   const res = await fetch("../accomodation.json", {
@@ -40,6 +41,6 @@ export default function GoToAccomodation() {
       </div>
     </>
   ) : (
-    "loading"
+    <NotFound />
   );
 }
